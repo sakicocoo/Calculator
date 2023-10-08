@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <meta charset="utf-8">
+ <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="calc.css">
+ <title>calclator</title>
+ </head>
+ 
+ <body>
+
+<div class=calculator>
+<div class="display">
+  <input type="text" id="display" value="0" disabled>
+</div>
+
+<table class="keypad">
+  <tr>
+    <td><button class="number" onclick="clickButton(this)">7</button></td>
+    <td><button class="number" onclick="clickButton(this)">8</button></td>
+    <td><button class="number" onclick="clickButton(this)">9</button></td>
+    <td><button id="plus" onclick="clickButton(this)">+</button></td>
+  </tr>
+  
+   <tr>
+    <td><button class="number" onclick="clickButton(this)">4</button></td>
+    <td><button class="number" onclick="clickButton(this)">5</button></td>
+    <td><button class="number" onclick="clickButton(this)">6</button></td>
+    <td><button id="minus" onclick="clickButton(this)">-</button></td>
+  </tr>
+  
+   <tr>
+    <td><button class="number" onclick="clickButton(this)">1</button></td>
+    <td><button class="number" onclick="clickButton(this)">2</button></td>
+    <td><button class="number" onclick="clickButton(this)">3</button></td>
+    <td><button id="multi" onclick="clickButton(this)">*</button></td>
+  </tr>
+  
+   <tr>
+    <td><button onclick="clickButton(this)">0</button></td>
+    <td><button onclick="clickButton(this)">00</button></td>
+    <td><button id="comma" onclick="clickButton(this)">.</button></td>
+    <td><button id="divide" onclick="clickButton(this)">/</button></td>
+  </tr>
+  
+   <tr>
+    <td><button onclick="clickButton(this)">AC</button></td>
+    <td><button onclick="clickButton(this)">=</button></td>
+  </tr>
+</table> 
+  
+</div>
+</div>
+
+ 
+ <script src="calc.js"></script>
+ </body>
+ </html>
