@@ -28,7 +28,7 @@ function clickButton(target) {
   else {
     display.value += target_value;
   }
-  console.log(result);
+  console.log(num);
 }
 
 
