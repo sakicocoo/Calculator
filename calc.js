@@ -16,7 +16,7 @@ function clickButton(target) {
     display.value = eval(result); //計算結果を表示
   } else if (display.value==="0" && target_value!==".") {
    display.value = target_value; //最初の０に上書き
-  } else if (target_value="+" && result.slice(-1)=="+") {
+  } else if (target_value==operator && display.value.slice(-1)==operator) {
     let answer = display.value.slice(0.-1);
     display.value = answer + target_value;
     console.log(answer);
