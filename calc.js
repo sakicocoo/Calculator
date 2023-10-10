@@ -1,8 +1,8 @@
 let display = document.getElementById('display');
 let result = 0;
-let operator = ["+","-","*","/"];
 
 function clickButton(target) {
+  // console.log(target);
   let target_value = target.innerHTML;
   result=display.value;
   
@@ -14,59 +14,24 @@ function clickButton(target) {
    display.value = target_value; //最初の０に上書き
   }
   
-  //演算子の連続入力の制御たち
-  else if (target_value=="+" && display.value.slice(-1)=="+") {
-    display.value = display.value.slice(0,-1) + "+";}
-  else if (target_value=="+" && display.value.slice(-1)=="-") {
-    display.value = display.value.slice(0,-1) + "+";}
-  else if (target_value=="+" && display.value.slice(-1)=="*") {
-    display.value = display.value.slice(0,-1) + "+";}
-  else if (target_value=="+" && display.value.slice(-1)=="/") {
-    display.value = display.value.slice(0,-1) + "+";}
-    
-  else if (target_value=="-" && display.value.slice(-1)=="+") {
-    display.value = display.value.slice(0,-1) + "-";}
-  else if (target_value=="-" && display.value.slice(-1)=="-") {
-    display.value = display.value.slice(0,-1) + "-";}
-  else if (target_value=="-" && display.value.slice(-1)=="*") {
-    display.value = display.value.slice(0,-1) + "-";}
-  else if (target_value=="-" && display.value.slice(-1)=="/") {
-    display.value = display.value.slice(0,-1) + "-";}
-    
-  else if (target_value=="*" && display.value.slice(-1)=="+") {
-    display.value = display.value.slice(0,-1) + "*";}
-  else if (target_value=="*" && display.value.slice(-1)=="-") {
-    display.value = display.value.slice(0,-1) + "*";}
-  else if (target_value=="*" && display.value.slice(-1)=="*") {
-    display.value = display.value.slice(0,-1) + "*";}
-  else if (target_value=="*" && display.value.slice(-1)=="/") {
-    display.value = display.value.slice(0,-1) + "*";}
-    
-  else if (target_value=="/" && display.value.slice(-1)=="+") {
-    display.value = display.value.slice(0,-1) + "/";}
-  else if (target_value=="/" && display.value.slice(-1)=="-") {
-    display.value = display.value.slice(0,-1) + "/";}
-  else if (target_value=="/" && display.value.slice(-1)=="*") {
-    display.value = display.value.slice(0,-1) + "/";}
-  else if (target_value=="/" && display.value.slice(-1)=="/") {
-    display.value = display.value.slice(0,-1) + "/";}
-  
-  else if (target_value=="." && display.value.slice(-1)=="."){
-    display.value= display.value.slice(0,-1) + ".";}
-  else if (target_value=="." && display.value.slice(-1)=="+"){
-    display.value= display.value.slice(0,-1) + ".";}
-  else if (target_value=="." && display.value.slice(-1)=="-"){
-    display.value= display.value.slice(0,-1) + ".";}
-  else if (target_value=="." && display.value.slice(-1)=="*"){
-    display.value= display.value.slice(0,-1) + ".";}
-  else if (target_value=="." && display.value.slice(-1)=="/"){
-    display.value= display.value.slice(0,-1) + ".";}
-  else if (target_value == "." && result.innerHTML.includes(".")) {
-    return;}
-    
+  //演算子の連続入力の制御
+  //入力した値が数字以外の場合
+  //表示されている最後が数字ならそのまま入力
+  //表示されている最後が数字以外なら最後の文字に上書き
+   
+  else {
+    if(isNaN(target_value)){
+      let last=display.value.slice(-1);
+      if (!isNaN(last)){
+        display.value += target_value;
+      } else {
+        display.value = display.value.slice(0,-1) + target_value;
+      }
+    }
   else{
     display.value += target_value; //入力したものを横に並べていく
   }}
+}
 
 
 
