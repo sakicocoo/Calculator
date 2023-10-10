@@ -1,12 +1,8 @@
 let display = document.getElementById('display');
-// let number = document.getElementsByClassName('number');
 let result = 0;
-// let preValue =document.display.value.slice(-1);
-// let num = document.getElementsByClassName('number');
 let operator = ["+","-","*","/"];
 
 function clickButton(target) {
-  // console.log(target);
   let target_value = target.innerHTML;
   result=display.value;
   
@@ -16,15 +12,62 @@ function clickButton(target) {
     display.value = eval(result); //計算結果を表示
   } else if (display.value==="0" && target_value!==".") {
    display.value = target_value; //最初の０に上書き
-  } else if (target_value==operator && display.value.slice(-1)==operator) {
-    let answer = display.value.slice(0.-1);
-    display.value = answer + target_value;
-    console.log(answer);
   }
-  else 
+  
+  //演算子の連続入力の制御たち
+  else if (target_value=="+" && display.value.slice(-1)=="+") {
+    display.value = display.value.slice(0,-1) + "+";}
+  else if (target_value=="+" && display.value.slice(-1)=="-") {
+    display.value = display.value.slice(0,-1) + "+";}
+  else if (target_value=="+" && display.value.slice(-1)=="*") {
+    display.value = display.value.slice(0,-1) + "+";}
+  else if (target_value=="+" && display.value.slice(-1)=="/") {
+    display.value = display.value.slice(0,-1) + "+";}
+    
+  else if (target_value=="-" && display.value.slice(-1)=="+") {
+    display.value = display.value.slice(0,-1) + "-";}
+  else if (target_value=="-" && display.value.slice(-1)=="-") {
+    display.value = display.value.slice(0,-1) + "-";}
+  else if (target_value=="-" && display.value.slice(-1)=="*") {
+    display.value = display.value.slice(0,-1) + "-";}
+  else if (target_value=="-" && display.value.slice(-1)=="/") {
+    display.value = display.value.slice(0,-1) + "-";}
+    
+  else if (target_value=="*" && display.value.slice(-1)=="+") {
+    display.value = display.value.slice(0,-1) + "*";}
+  else if (target_value=="*" && display.value.slice(-1)=="-") {
+    display.value = display.value.slice(0,-1) + "*";}
+  else if (target_value=="*" && display.value.slice(-1)=="*") {
+    display.value = display.value.slice(0,-1) + "*";}
+  else if (target_value=="*" && display.value.slice(-1)=="/") {
+    display.value = display.value.slice(0,-1) + "*";}
+    
+  else if (target_value=="/" && display.value.slice(-1)=="+") {
+    display.value = display.value.slice(0,-1) + "/";}
+  else if (target_value=="/" && display.value.slice(-1)=="-") {
+    display.value = display.value.slice(0,-1) + "/";}
+  else if (target_value=="/" && display.value.slice(-1)=="*") {
+    display.value = display.value.slice(0,-1) + "/";}
+  else if (target_value=="/" && display.value.slice(-1)=="/") {
+    display.value = display.value.slice(0,-1) + "/";}
+  
+  else if (target_value=="." && display.value.slice(-1)=="."){
+    display.value= display.value.slice(0,-1) + ".";}
+  else if (target_value=="." && display.value.slice(-1)=="+"){
+    display.value= display.value.slice(0,-1) + ".";}
+  else if (target_value=="." && display.value.slice(-1)=="-"){
+    display.value= display.value.slice(0,-1) + ".";}
+  else if (target_value=="." && display.value.slice(-1)=="*"){
+    display.value= display.value.slice(0,-1) + ".";}
+  else if (target_value=="." && display.value.slice(-1)=="/"){
+    display.value= display.value.slice(0,-1) + ".";}
+  else if (target_value == "." && result.innerHTML.includes(".")) {
+    return;}
+    
+  else{
     display.value += target_value; //入力したものを横に並べていく
-  }
-  // console.log(target_value);
+  }}
+
 
 
 
